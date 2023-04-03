@@ -4,16 +4,19 @@ import {
   LengthInput,
   ControlInputGroup,
   ControlBtnGroup,
-  ControlRangeInputSection
+  ControlRangeInputSection,
+  DataToggleButton
 } from "./componentStyles/SortControlStyles";
 
 interface SortControlProps {
   getRandomArray: () => void;
   lengthInputRef: React.MutableRefObject<HTMLInputElement | null>;
   setSize: React.Dispatch<React.SetStateAction<number>>;
-  setIsSorting: (isSorting: boolean) => void;
+  setIsSorting: React.Dispatch<React.SetStateAction<boolean>>;
   setSortingSpeed: React.Dispatch<React.SetStateAction<number>>;
   isSorted: boolean;
+  showData: boolean;
+  setShowData: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const SortControl = ({
@@ -22,7 +25,9 @@ const SortControl = ({
   setSize,
   setIsSorting,
   setSortingSpeed,
-  isSorted
+  isSorted,
+  showData,
+  setShowData
 }: SortControlProps) => {
   const sortArray = () => {
     if (isSorted) {
@@ -67,6 +72,12 @@ const SortControl = ({
         <ControlButton onClick={sortArray} bg="#999" bgh="#777">
           Sort
         </ControlButton>
+        <DataToggleButton
+          showData={showData}
+          onClick={() => setShowData((prev) => !prev)}
+        >
+          Big O
+        </DataToggleButton>
       </ControlBtnGroup>
     </SortControlContainer>
   );
