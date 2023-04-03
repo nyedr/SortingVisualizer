@@ -1,36 +1,36 @@
+import { Dispatch, SetStateAction } from "react";
 import { Algorithm } from "../App";
 import { AlgoButton, AlgoBtnGroup } from "./componentStyles/AlgoButtonStyles";
 
 const SortingAlgorithmsArray = ["Quick", "Bubble", "Merge"];
 
-const SortingAlgorithmBtns = ({
-  setAlgorithm
-}: {
-  setAlgorithm: (algo: Algorithm) => void;
-}) => {
-  const algoClick = (sortingAlgorithm: string) => {
-    setAlgorithm(sortingAlgorithm.toUpperCase() as Algorithm);
+interface SortingAlgoBtnsProps {
+  setAlgorithm: Dispatch<SetStateAction<Algorithm>>;
+}
+
+interface SortingAlgoBtnProps {
+  algorithm: string;
+  // index: number;
+}
+
+const SortingAlgorithmBtns = ({ setAlgorithm }: SortingAlgoBtnsProps) => {
+  const changeAlgo = (algorithm: string) => {
+    setAlgorithm(algorithm.toUpperCase() as Algorithm);
   };
 
-  const SortingAlgorithmBtn = ({
-    sortingAlgorithm,
-    index
-  }: {
-    sortingAlgorithm: string;
-    index: number;
-  }) => {
+  const SortingAlgorithmBtn = ({ algorithm, index }: SortingAlgoBtnProps) => {
     const buttonHue = index * 100;
     return (
-      <AlgoButton hue={buttonHue} onClick={() => algoClick(sortingAlgorithm)}>
-        {`${sortingAlgorithm} Sort`}
+      <AlgoButton hue={buttonHue} onClick={() => changeAlgo(algorithm)}>
+        {`${algorithm} Sort`}
       </AlgoButton>
     );
   };
 
   return (
     <AlgoBtnGroup>
-      {SortingAlgorithmsArray.map((sort, i) => (
-        <SortingAlgorithmBtn key={i} index={i} sortingAlgorithm={sort} />
+      {SortingAlgorithmsArray.map((sort, idx) => (
+        <SortingAlgorithmBtn key={idx} index={idx} algorithm={sort} />
       ))}
     </AlgoBtnGroup>
   );
