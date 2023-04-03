@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { AppContainer, GlobalStyle, ContainerTitle } from "./AppStyles";
 import useSortingVisualizer from "./hooks/useSortingVisualizer";
 import useArray from "./hooks/useArray";
+import AlgorithmData from "./components/AlgorithmData";
 
 export type Algorithm = "BUBBLE" | "QUICK" | "MERGE";
 
@@ -15,7 +16,9 @@ export default function App() {
   const [isSorting, setIsSorting] = useState(false);
   const [sortingSpeed, setSortingSpeed] = useState(99);
   const lengthInputRef = useRef<HTMLInputElement | null>(null);
+  const [showData, setShowData] = useState(false);
 
+  // Set array size
   useEffect(() => {
     if (!Array.isArray(getRandomArray)) getRandomArray();
     if (lengthInputRef.current != null) {
@@ -32,7 +35,9 @@ export default function App() {
     setSize,
     setIsSorting,
     setSortingSpeed,
-    isSorted
+    isSorted,
+    showData,
+    setShowData
   };
 
   const useSortingVisualizerProps = {
@@ -53,6 +58,7 @@ export default function App() {
       </ContainerTitle>
       <SortControl {...sortControlProps} />
       {useSortingVisualizer(useSortingVisualizerProps)}
+      {showData && <AlgorithmData {...{ algorithm }} />}
       <SortingAlgorithmBtns {...{ setAlgorithm }} />
     </AppContainer>
   );
