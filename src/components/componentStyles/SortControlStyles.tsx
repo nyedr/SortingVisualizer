@@ -60,3 +60,18 @@ export const ControlBtnGroup = styled.div`
   gap: 1rem;
   align-items: center;
 `;
+
+export const DataToggleButton = styled.button<{ showData: boolean }>`
+  box-shadow: ${(props) =>
+    !props.showData
+      ? "0px 0px rgba(0, 0, 0, 0.1)"
+      : "inset 3px 3px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px #fff"};
+  padding: 0.4em 1.3em;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.325s ease-in-out;
+  font-size: 1.1rem;
+  white-space: nowrap;
+`;
