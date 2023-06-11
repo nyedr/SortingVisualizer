@@ -10,7 +10,7 @@ interface SortingAlgoBtnsProps {
 
 interface SortingAlgoBtnProps {
   algorithm: string;
-  // index: number;
+  index: number;
 }
 
 const SortingAlgorithmBtns = ({ setAlgorithm }: SortingAlgoBtnsProps) => {

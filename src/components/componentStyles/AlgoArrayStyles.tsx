@@ -18,17 +18,6 @@ export const SortLine = styled.div<SortLineStyleProps>`
   }
 `;
 
-// export const SortLineNum = styled.div`
-//   transform: rotate(180deg);
-//   position: absolute;
-//   top: 100%;
-//   text-align: center;
-//   width: 100%;
-//   display: none;
-//   transition: 0.325s ease-in-out;
-//   font-size: 1.1rem;
-// `;
-
 export const SortLines = styled.div`
   position: relative;
   transform: translate(-50%, -50%);
