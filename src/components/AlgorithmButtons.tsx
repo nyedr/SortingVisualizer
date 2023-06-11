@@ -2,7 +2,11 @@ import { Dispatch, SetStateAction } from "react";
 import { Algorithm } from "../App";
 import { AlgoButton, AlgoBtnGroup } from "./componentStyles/AlgoButtonStyles";
 
-const SortingAlgorithmsArray = [Algorithm.QUICK, Algorithm.BUBBLE, Algorithm.MERGE];
+const SortingAlgorithmsArray = [
+  Algorithm[Algorithm.QUICK],
+  Algorithm[Algorithm.BUBBLE],
+  Algorithm[Algorithm.MERGE]
+];
 
 interface SortingAlgoBtnsProps {
   setAlgorithm: Dispatch<SetStateAction<Algorithm>>;
