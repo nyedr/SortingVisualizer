@@ -17,6 +17,7 @@
     "styled-components": "5.3.6"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0-placeholder-for-preset-env.2",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "typescript": "4.4.2"
@@ -27,7 +28,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://sorting-visualizer.vercel.app/",
+  "homepage": "https://sorting-visualizer-egar.vercel.app/",
   "browserslist": [
     ">0.2%",
     "not dead",
