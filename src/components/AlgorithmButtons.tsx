@@ -2,27 +2,28 @@ import { Dispatch, SetStateAction } from "react";
 import { Algorithm } from "../App";
 import { AlgoButton, AlgoBtnGroup } from "./componentStyles/AlgoButtonStyles";
 
-const SortingAlgorithmsArray = ["Quick", "Bubble", "Merge"];
+const SortingAlgorithmsArray = [Algorithm.QUICK, Algorithm.BUBBLE, Algorithm.MERGE];
 
 interface SortingAlgoBtnsProps {
   setAlgorithm: Dispatch<SetStateAction<Algorithm>>;
 }
 
 interface SortingAlgoBtnProps {
-  algorithm: string;
+  algorithm: Algorithm;
   index: number;
 }
 
 const SortingAlgorithmBtns = ({ setAlgorithm }: SortingAlgoBtnsProps) => {
-  const changeAlgo = (algorithm: string) => {
-    setAlgorithm(algorithm.toUpperCase() as Algorithm);
+  const changeAlgo = (algorithm: Algorithm) => {
+    setAlgorithm(algorithm);
   };
 
   const SortingAlgorithmBtn = ({ algorithm, index }: SortingAlgoBtnProps) => {
     const buttonHue = index * 100;
+    const algorithmName = algorithm.slice(0, 1) + algorithm.slice(1).toLowerCase();
     return (
       <AlgoButton hue={buttonHue} onClick={() => changeAlgo(algorithm)}>
-        {`${algorithm} Sort`}
+        {`${algorithmName} Sort`}
       </AlgoButton>
     );
   };

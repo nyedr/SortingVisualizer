@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import {
   SortLine,
-  // SortLineNum,
   SortLines
 } from "./componentStyles/AlgoArrayStyles";
 import { AnimationIndexes } from "../hooks/useSortingVisualizer";

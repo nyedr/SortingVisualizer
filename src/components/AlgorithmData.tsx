@@ -20,12 +20,12 @@ type Complexity = {
 const AlgorithmData = ({ algorithm }: { algorithm: Algorithm }) => {
   const getAlgorithmComplexity = (algorithm: Algorithm): Complexity => {
     switch (algorithm) {
-      case "BUBBLE":
+      case Algorithm.BUBBLE:
         return {
           timeComplexity: { worstCase: "O(n^2)", averageCase: "O(n^2)" },
           spaceComplexity: { worstCase: "O(1)", averageCase: "O(1)" }
         };
-      case "MERGE":
+      case Algorithm.MERGE:
         return {
           timeComplexity: {
             worstCase: "O(n * log(n))",
@@ -33,10 +33,15 @@ const AlgorithmData = ({ algorithm }: { algorithm: Algorithm }) => {
           },
           spaceComplexity: { worstCase: "O(n)", averageCase: "O(n)" }
         };
-      case "QUICK":
+      case Algorithm.QUICK:
         return {
           timeComplexity: { worstCase: "O(n^2)", averageCase: "O(n * log(n))" },
           spaceComplexity: { worstCase: "O(n)", averageCase: "O(log(n))" }
+        };
+      default:
+        return {
+          timeComplexity: { worstCase: "O(n^2)", averageCase: "O(n^2)" },
+          spaceComplexity: { worstCase: "O(1)", averageCase: "O(1)" }
         };
     }
   };

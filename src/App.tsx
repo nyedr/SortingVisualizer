@@ -6,10 +6,14 @@ import useSortingVisualizer from "./hooks/useSortingVisualizer";
 import useArray from "./hooks/useArray";
 import AlgorithmData from "./components/AlgorithmData";
 
-export type Algorithm = "BUBBLE" | "QUICK" | "MERGE";
+export enum Algorithm {
+  BUBBLE = "BUBBLE",
+  QUICK = "QUICK",
+  MERGE = "MERGE"
+}
 
 export default function App() {
-  const [algorithm, setAlgorithm] = useState<Algorithm>("BUBBLE");
+  const [algorithm, setAlgorithm] = useState<Algorithm>(Algorithm.BUBBLE);
   const [size, setSize] = useState(20);
   const [isSorted, setIsSorted] = useState(false);
   const { array, setArray, getRandomArray } = useArray({ size, setIsSorted });

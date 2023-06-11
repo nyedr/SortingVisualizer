@@ -64,17 +64,17 @@ const useSortingVisualizer = ({
   const startAnimation = () => {
     let newAnimationsArray: AnimationsArray = [];
     switch (algorithm) {
-      case "BUBBLE":
+      case Algorithm.BUBBLE:
         newAnimationsArray = bubbleSort(array) ?? [];
         break;
-      case "MERGE":
+      case Algorithm.MERGE:
         newAnimationsArray = mergeSort(array) ?? [];
         break;
-      case "QUICK":
+      case Algorithm.QUICK:
         newAnimationsArray = quickSort(array) ?? [];
         break;
       default:
-        throw new Error(algorithm + " ais not a valid algorithm.");
+        throw new Error(algorithm + " is not a valid algorithm.");
     }
 
     handleAnimation(newAnimationsArray);
