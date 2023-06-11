@@ -33,9 +33,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
   ]
 }
